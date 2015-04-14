@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<link rel="shortcut icon" href="http://faviconist.com/icons/998abf70db8c3869aeea7dccbb570da5/favicon.ico" />
+<html ng-app="app">
+<head lang="en">
+	<meta charset="UTF-8">
+	<title>mcorbridge</title>
+
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/components-font-awesome/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+
+ <div class="angularImage" ng-controller="angularImageCrtl"></div>
+
+ <div ng-controller="buttonsCtrl" class="btns">
+
+	 <div ng-click="moveTo()">move to</div>
+	 <div ng-click="moveBack()">move back</div>
+	 <div ng-click="verticalScale()">V scale</div>
+	 <div ng-click="parallel()">parallel</div>
+
+ </div>
+
+ <div ng-controller="liftCtrl">
+		<div class="lift">
+			<div class="Lgripper"></div>
+			<div class="Rgripper"></div>
+			<div class="mech"></div>
+ 		</div>
+		<div class="box1"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+		<div class="box4"></div>
+		<div class="box5"></div>
+		<div class="box6"></div>
+		<div class="box7"></div>
+ </div>
+
+ <div class="redBox"></div>
+ <div class="blueBox"></div>
+ <div class="yellowBox"></div>
+ <div class="blackBox"></div>
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+<script  src="https://code.angularjs.org/1.2.21/angular.js"></script>
+<script src="bower_components/GreenSock-JS/BezierPlugin.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.13.1/TweenMax.min.js"></script>
+<script src="bower_components/angular-ui-router-styles/ui-router-styles.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+</html>
