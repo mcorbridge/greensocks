@@ -1,0 +1,11 @@
+{
+  "name": "GreenSock-JS",
+  "_cacheHeaders": {
+    "Content-Type": "text/html; charset=utf-8"
+  },
+  "main": "index",
+  "_source": "https://github.com/greensock/GreenSock-JS",
+  "_target": "*",
+  "_originalSource": "https://github.com/greensock/GreenSock-JS",
+  "_direct": true
+}
