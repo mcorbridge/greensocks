@@ -127,7 +127,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/angularIcon.png');
-	visibility: hidden;
+	visibility: visible;
 }
 
 .box2{
@@ -138,18 +138,18 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/javaIcon.png');
-	visibility: hidden;
+	visibility: visible;
 }
 
 .box3{
-	 position: absolute;
+	position: absolute;
 	top: 840px;
 	left: 578px;
 	width: 100px;
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/flexIcon.png');
-	visibility: hidden;
+	visibility: visible;
  }
 
 .box4{
@@ -162,7 +162,7 @@ body{
 	background-image: url('images/jdoIcon.png');
 	border: solid 1px darkblue;
 	border-radius: 10px;
-	visibility: hidden;
+	visibility: visible;
 }
 
 .box5{
@@ -173,7 +173,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/greenSockIcon.png');
-	visibility: hidden;
+	visibility: visible;
 }
 
 .box6{
@@ -184,7 +184,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/androidIcon.png');
-	visibility: hidden;
+	visibility: visible;
 }
 
 .box7{
@@ -194,7 +194,7 @@ body{
 	width: 100px;
 	height: 100px;
 	background-color: darkred;
-	visibility: hidden;
+	visibility: visible;
 }
 
 .blueBox{

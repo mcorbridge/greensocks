@@ -40,6 +40,8 @@ angular.module('app', [])
 	}])
 
 	.controller('buttonsCtrl', ['$scope','$rootScope','commonService', function($scope, $rootScope, commonService){
+
+
 		$scope.moveTo = function(){
 			$rootScope.$emit('moveTo', 'moveTo');
 			commonService.action('moveTo');
@@ -57,14 +59,33 @@ angular.module('app', [])
 		$scope.parallel = function(){
 			$rootScope.$emit('parallel', 'parallel');
 		}
+
+		$scope.levelOneDrop = function(){
+			$rootScope.$emit('levelOneDrop', 'levelOneDrop');
+		}
 	}])
 
-	.controller('liftCtrl', ['$scope','$rootScope', function($scope, $rootScope){
+	.controller('liftCtrl', ['$scope','$rootScope', '$window', function($scope, $rootScope, $window){
+
+		var screenWidth = $window.screen.availWidth;
+		var screenHeight = $window.screen.availHeight;
 
 		var timeLineMax = new TimelineMax({repeat:0, repeatDelay:1});
 
 		$rootScope.$on('verticalScale', function(event, state) {
 			retrieveBoxSequence();
+		});
+
+		$rootScope.$on('levelOneDrop', function(event, state) {
+			levelOneDrop();
+		});
+
+		$rootScope.$on('levelTwoDrop', function(event, state) {
+			levelTwoDrop();
+		});
+
+		$rootScope.$on('levelThreeDrop', function(event, state) {
+			levelThreeDrop();
 		});
 
 
@@ -86,11 +107,11 @@ angular.module('app', [])
 			return tl;
 		};
 
-		var boxes = ['.box1','.box2','.box3','.box4','.box5','.box6'];
+		var boxes = ['.box1','.box2','.box3','.box4','.box5','.box6','.box7'];
 
 		var boxNdx = 0;
 
-		var dropLocation = 700;
+		var levelOneDropLocation = 500;
 
 		var moveGrippers = function(Lpos, Rpos, rate){
 			var tl = new TimelineMax();
@@ -112,6 +133,18 @@ angular.module('app', [])
 				.timeScale(2);
 		};
 
+		var setIconLocation = function(){
+			TweenMax.to('.box1', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+			TweenMax.to('.box2', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+			TweenMax.to('.box3', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+			TweenMax.to('.box4', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+			TweenMax.to('.box5', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+			TweenMax.to('.box6', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+			TweenMax.to('.box7', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+		}
+
+		setIconLocation();
+
 		var openGripper = function(box){
 			boxNdx++;
 			if(boxNdx === boxes.length+1)
@@ -122,10 +155,79 @@ angular.module('app', [])
 				.to(box, 1, {top:dropLocation, ease:Bounce.easeOut, delay:-0.2})
 				.to('.lift', 1, {left:515, onComplete:retrieveBoxSequence});
 
-			dropLocation = dropLocation - 100;
+			//dropLocation = dropLocation - 100;
 		}
 
+		var levelOneXoffset = 1800;
+		var levelTwoXoffset = 1800;
+		var levelThreeXoffset = 1800;
 
+		var levelOneBoxOffset = screenWidth-1223;
+		var dropNdx = 0;
+
+		var liftDropComplete = function(){
+			if(dropNdx === 0){
+				console.log('levelOneDrop:');
+				boxNdx++;
+				levelOneDrop();
+			}else if(dropNdx === 1) {
+				console.log('levelTwoDrop:');
+				levelTwoDrop();
+				dropNdx++;
+			}else if(dropNdx === 2) {
+				console.log('levelThreeDrop:');
+				levelThreeDrop();
+				dropNdx = 0;
+			}
+
+		}
+
+		 var levelOneDrop = function(){
+			var box = boxes[boxNdx];
+			timeLineMax
+				.to('.lift', 1, {x:screenWidth-740})
+				.to('.lift', 1, {y:screenHeight-170})
+				.add(moveGrippers(14,-14,1))
+				.to('.lift', 1, {y:screenHeight-950})
+				.add(TweenMax.to(box, 1,{top:screenHeight-820, delay:-1}))
+				.to('.lift', 1, {x:screenWidth-levelOneXoffset})
+				.add(TweenMax.to(box, 1,{left:levelOneBoxOffset, delay:-1}))
+				.add(moveGrippers(0,0,0.25))
+				.add(TweenMax.to(box, 1, {top:levelOneDropLocation, ease:Bounce.easeOut}))
+				.to('.lift', 0, {onComplete:liftDropComplete})
+				.timeScale(2);;
+
+			 levelOneBoxOffset = levelOneBoxOffset + 150;
+			 levelOneXoffset = levelOneXoffset - 150;
+		 }
+
+		var levelTwoDrop = function(){
+			timeLineMax
+				.to('.lift', 1, {x:screenWidth-740})
+				.to('.lift', 1, {y:screenHeight-170})
+				.add(moveGrippers(14,-14,1))
+				.to('.lift', 1, {y:screenHeight-950})
+				.to('.lift', 1, {x:screenWidth-levelTwoXoffset})
+				.to('.lift', 1, {y:screenHeight-700})
+				.add(moveGrippers(0,0,0.25))
+				.to('.lift', 1, {y:screenHeight-950, onComplete:liftDropComplete});
+
+			levelTwoXoffset = levelTwoXoffset - 150;
+		}
+
+		var levelThreeDrop = function(){
+			timeLineMax
+				.to('.lift', 1, {x:screenWidth-740})
+				.to('.lift', 1, {y:screenHeight-170})
+				.add(moveGrippers(14,-14,1))
+				.to('.lift', 1, {y:screenHeight-950})
+				.to('.lift', 1, {x:screenWidth-levelThreeXoffset})
+				.to('.lift', 1, {y:screenHeight-900})
+				.add(moveGrippers(0,0,0.25))
+				.to('.lift', 1, {y:screenHeight-950, onComplete:liftDropComplete});
+
+			levelThreeXoffset = levelThreeXoffset - 150;
+		}
 
 		$rootScope.$on('parallel', function(event, state) {
 			var tl = new TimelineMax()
