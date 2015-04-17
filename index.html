@@ -17,24 +17,38 @@
  <div class="angularImage" ng-controller="angularImageCrtl"></div>
 
  <div ng-controller="buttonsCtrl" class="btns">
-	 <div ng-click="levelOneDrop()">levelOneDrop</div>
-	 <div ng-click="levelTwoDrop()">levelTwoDrop</div>
-	 <div ng-click="levelThreeDrop()">levelThreeDrop</div>
+	    <!--<button ng-click="doRotation()">rotate</button>-->
  </div>
 
  <div ng-controller="liftCtrl">
-		<div class="lift">
+
+		<div class="box1" ng-click="clickIcon('gulp')"></div>	<!-- gulp -->
+		<div class="box2" ng-click="clickIcon('java')"></div>	<!-- java -->
+		<div class="box3" ng-click="clickIcon('angularjs')"></div>	<!-- angularjs -->
+		<div class="box4" ng-click="clickIcon('bower')"></div>	<!-- bower -->
+		<div class="box5" ng-click="clickIcon('nodejs')"></div>	<!-- nodejs -->
+		<div class="box6" ng-click="clickIcon('android')"></div>	<!-- android -->
+		<div class="box7" ng-click="clickIcon('jira')"></div>	<!-- jira -->
+		<div class="box8" ng-click="clickIcon('jdo')"></div>	<!-- jdo -->
+		<div class="box9" ng-click="clickIcon('greensock')"></div>	<!-- greensock -->
+		<div class="box10" ng-click="clickIcon('git')"></div>	<!-- git -->
+		<div class="box11" ng-click="clickIcon('firebase')"></div>	<!-- firebase -->
+		<div class="box12" ng-click="clickIcon('flex')"></div>	<!-- flex -->
+		<div class="box13" ng-click="clickIcon('sass')"></div>	<!-- sass -->
+		<div class="box14" ng-click="clickIcon('appEngine')"></div>	<!-- appEngine -->
+		<div class="box15" ng-click="clickIcon('air')"></div>	<!-- air -->
+		<div class="box16" ng-click="clickIcon('jquery')"></div>	<!-- jquery -->
+		<div class="box17" ng-click="clickIcon('gradle')"></div>	<!-- gradle -->
+		<div class="box18" ng-click="clickIcon('mongodb')"></div>	<!-- mongodb -->
+
+		<div class="lift" ng-click="startSequence()">
 			<div class="Lgripper"></div>
 			<div class="Rgripper"></div>
 			<div class="mech"></div>
- 		</div>
-		<div class="box1"></div>
-		<div class="box2"></div>
-		<div class="box3"></div>
-		<div class="box4"></div>
-		<div class="box5"></div>
-		<div class="box6"></div>
-		<div class="box7"></div>
+			<div class="Lgear"></div>
+			<div class="Rgear"></div>
+		</div>
+
  </div>
 
  <div class="redBox"></div>

@@ -1,6 +1,7 @@
 
 body{
 	overflow:hidden;
+	background-image: url('images/pageBackground.png');
 }
 
 .bizCard{
@@ -119,6 +120,28 @@ body{
 	background-image: url('images/Rgripper.png');
 }
 
+.Lgear{
+	position: absolute;
+	bottom: 143px;
+	right: 198px;
+	width: 25px;
+	height: 25px;
+	background-repeat: no-repeat;
+	background-image: url('images/gear.png');
+}
+
+.Rgear{
+	position: absolute;
+	bottom: 143px;
+	right: 0px;
+	width: 25px;
+	height: 25px;
+	background-repeat: no-repeat;
+	background-image: url('images/gear.png');
+}
+
+/*        ------------------ icons --------------------- */
+
 .box1{
 	position: absolute;
 	top: 840px;
@@ -126,8 +149,10 @@ body{
 	width: 100px;
 	height: 100px;
 	background-repeat: no-repeat;
-	background-image: url('images/angularIcon.png');
-	visibility: visible;
+	background-image: url('images/gulpIcon.png');
+	border: solid 1px #ea4a4a;
+	border-radius: 10px;
+	visibility: hidden;
 }
 
 .box2{
@@ -138,7 +163,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/javaIcon.png');
-	visibility: visible;
+	visibility: hidden;
 }
 
 .box3{
@@ -148,8 +173,10 @@ body{
 	width: 100px;
 	height: 100px;
 	background-repeat: no-repeat;
-	background-image: url('images/flexIcon.png');
-	visibility: visible;
+	background-image: url('images/angularIcon.png');
+	border: solid 1px #b2b2b2;
+	border-radius: 10px;
+	visibility: hidden;
  }
 
 .box4{
@@ -159,10 +186,9 @@ body{
 	width: 100px;
 	height: 100px;
 	background-repeat: no-repeat;
-	background-image: url('images/jdoIcon.png');
-	border: solid 1px darkblue;
+	background-image: url('images/bowerIcon.png');
 	border-radius: 10px;
-	visibility: visible;
+	visibility: hidden;
 }
 
 .box5{
@@ -172,8 +198,8 @@ body{
 	width: 100px;
 	height: 100px;
 	background-repeat: no-repeat;
-	background-image: url('images/greenSockIcon.png');
-	visibility: visible;
+	background-image: url('images/nodejsIcon.png');
+	visibility: hidden;
 }
 
 .box6{
@@ -184,7 +210,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/androidIcon.png');
-	visibility: visible;
+	visibility: hidden;
 }
 
 .box7{
@@ -193,9 +219,143 @@ body{
 	left: 490px;
 	width: 100px;
 	height: 100px;
-	background-color: darkred;
-	visibility: visible;
+	background-repeat: no-repeat;
+	background-image: url('images/jiraIcon.png');
+	visibility: hidden;
 }
+
+.box8{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/jdoIcon.png');
+	border: solid 1px #5e5a94;
+	border-radius: 10px;
+	visibility: hidden;
+}
+
+.box9{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/greenSockIcon.png');
+	visibility: hidden;
+}
+
+.box10{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/gitIcon.png');
+	visibility: hidden;
+}
+
+.box11{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/firebaseIcon.png');
+	visibility: hidden;
+}
+
+.box12{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/flexIcon.png');
+	visibility: hidden;
+}
+
+.box13{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/sassIcon.png');
+	border: solid 1px #d7b7c7;
+	border-radius: 10px;
+	visibility: hidden;
+}
+
+.box14{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/appEngineIcon.png');
+	border: solid 1px #003c79;
+	border-radius: 10px;
+	visibility: hidden;
+}
+
+.box15{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/airIcon.png');
+	visibility: hidden;
+}
+
+.box16{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/jQueryIcon.png');
+	border: solid 1px #0868ab;
+	border-radius: 10px;
+	visibility: hidden;
+}
+
+.box17{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/gradleIcon.png');
+	border: solid 1px #026536;
+	border-radius: 10px;
+	visibility: hidden;
+}
+
+.box18{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-image: url('images/mongodbIcon.png');
+	visibility: hidden;
+}
+
+/*        ---------------------------------------- */
 
 .blueBox{
 	position: absolute;
