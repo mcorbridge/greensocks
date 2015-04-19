@@ -91,25 +91,29 @@ angular.module('app', [])
 
 		var isPlaced = false;
 
+		var liftBottomY = -1830+screenHeight;
+		var liftBottomX = (screenWidth/2) - (225/2);
+		var tabX = (screenWidth/2) - (40/2);
+
 		var iconMap = [
-			{name:'gulp', value:0},
-			{name:'java', value:1},
-			{name:'angularjs', value:2},
-			{name:'bower', value:3},
-			{name:'nodejs', value:4},
-			{name:'android', value:5},
-			{name:'jira', value:6},
-			{name:'jdo', value:7},
-			{name:'greensock', value:8},
-			{name:'git', value:9},
-			{name:'firebase', value:10},
-			{name:'flex', value:1},
-			{name:'sass', value:12},
-			{name:'appEngine', value:13},
-			{name:'air', value:14},
-			{name:'jquery', value:15},
-			{name:'gradle', value:16},
-			{name:'mongodb', value:17}
+			{name:'gulp', value:0, div:'.box1'},
+			{name:'java', value:1, div:'.box2'},
+			{name:'angularjs', value:2, div:'.box3'},
+			{name:'bower', value:3, div:'.box4'},
+			{name:'nodejs', value:4, div:'.box5'},
+			{name:'android', value:5, div:'.box6'},
+			{name:'jira', value:6, div:'.box7'},
+			{name:'jdo', value:7, div:'.box8'},
+			{name:'greensock', value:8, div:'.box9'},
+			{name:'git', value:9, div:'.box10'},
+			{name:'firebase', value:10, div:'.box11'},
+			{name:'flex', value:1, div:'.box12'},
+			{name:'sass', value:12, div:'.box13'},
+			{name:'appEngine', value:13, div:'.box14'},
+			{name:'air', value:14, div:'.box15'},
+			{name:'jquery', value:15, div:'.box16'},
+			{name:'gradle', value:16, div:'.box17'},
+			{name:'mongodb', value:17, div:'.box18'}
 		];
 
 		$scope.startSequence = function(){
@@ -142,6 +146,18 @@ angular.module('app', [])
 				.to('.Lgear', 1,{rotation:rotate_0},'grab')
 				.to('.Rgear', 1,{rotation:rotate_1},'grab');
 		return tl;
+		};
+
+		var moveGrippersBottom = function(Lpos, Rpos, rate){
+			rotate_0 = rotate_0 * -1;
+			rotate_1 = rotate_1 * -1;
+			var tl = new TimelineMax();
+			tl
+				.to(".LgripperBottom", rate, {x:Lpos},'grab')
+				.to(".RgripperBottom", rate, {x:Rpos},'grab')
+				.to('.LgearBottom', 1,{rotation:rotate_0},'grab')
+				.to('.RgearBottom', 1,{rotation:rotate_1},'grab');
+			return tl;
 		}
 
 		var setIconLocation = function(){
@@ -163,16 +179,27 @@ angular.module('app', [])
 			TweenMax.to('.box16', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
 			TweenMax.to('.box17', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
 			TweenMax.to('.box18', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
+
+
+			TweenMax.to('.liftBottom', 0, {css:{visibility:"visible",x:liftBottomX, y:liftBottomY}});
+			TweenMax.to('.header', 0, {css:{visibility:"visible", y:-275}});
+			TweenMax.to('.tab', 0, {css:{visibility:"visible", left:tabX}});
 		}
 
-		setIconLocation();
+
 
 		var liftDropComplete = function(){
-
+			var tl = new TimelineMax({repeat:0, repeatDelay:1});
 			if(boxNdx === 17){
-
-				//timeLineMax
-					//.to('.lift', 20, {y:-300, delay:10})
+				tl
+				.to('.lift', 1, {y:-300})
+				.to('.liftBottom', 1, {y:liftBottomY-(screenHeight+30)})
+				.add(moveGrippersBottom(44,-44,1))
+				.to('.liftBottom', 1, {y:liftBottomY-(screenHeight-280)})
+				.to('.header',1,{y:0, delay:-1})
+				.add(moveGrippersBottom(0,0,1))
+				.to('.liftBottom', 1, {y:liftBottomY})
+				.to('.tab',1,{css:{alpha:0}, delay:-1.5});
 
 				isBuilding = false;
 				return;
@@ -280,10 +307,13 @@ angular.module('app', [])
 				}
 			}
 
+			TweenMax.to(iconItem.div, 0.25,{scale:1});
+
 			if(isPlaced){
 				currentItem = item;
 				isPlaced = false;
 				tlMax
+					.to('.lift',1,{y:15})
 					.add(moveGrippers(14,-14,1))
 					.to('.lift', 1, {x:currentBox.liftX, y:currentBox.dropLocation-130})
 					.add(TweenMax.to(currentBox.box, 1,{top:currentBox.dropLocation, left:currentBox.boxOffset, delay:-1}))
@@ -299,7 +329,7 @@ angular.module('app', [])
 					.to('.lift', 1,{x:-400, y:0})
 					.add(TweenMax.to(currentBox.box, 1,{top:132, left:176, delay:-1}))
 					.add(moveGrippers(0,0,1))
-					.to('.lift', 0, {onComplete:setIsSelecting})
+					.to('.lift', 1, {y:-300, onComplete:setIsSelecting})
 					.timeScale(2);
 
 				isPlaced = true;
@@ -309,6 +339,28 @@ angular.module('app', [])
 		var continuePlacement = function(){
 			$scope.clickIcon(currentItem);
 		}
+
+		$scope.doScale = function(item, direction){
+
+			for(var n=0;n<iconMap.length;n++){
+				var iconItem = iconMap[n];
+				if(item === iconItem.name){
+					console.log(iconItem.name + ' ' + iconItem.value + ' ' + iconItem.div);
+					break;
+				}
+			}
+
+			if(direction === 'up'){
+				TweenMax.to(iconItem.div, 0.25,{scale:1.25})
+				TweenMax.to(iconItem.div, 0, {boxShadow:"10px 10px 10px"})
+			}else{
+				TweenMax.to(iconItem.div, 0.25,{scale:1})
+				TweenMax.to(iconItem.div, 0, {boxShadow:"none"})
+			}
+		}
+
+
+		setIconLocation();
 
 
 	}])

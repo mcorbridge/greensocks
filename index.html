@@ -22,24 +22,28 @@
 
  <div ng-controller="liftCtrl">
 
-		<div class="box1" ng-click="clickIcon('gulp')"></div>	<!-- gulp -->
-		<div class="box2" ng-click="clickIcon('java')"></div>	<!-- java -->
-		<div class="box3" ng-click="clickIcon('angularjs')"></div>	<!-- angularjs -->
-		<div class="box4" ng-click="clickIcon('bower')"></div>	<!-- bower -->
-		<div class="box5" ng-click="clickIcon('nodejs')"></div>	<!-- nodejs -->
-		<div class="box6" ng-click="clickIcon('android')"></div>	<!-- android -->
-		<div class="box7" ng-click="clickIcon('jira')"></div>	<!-- jira -->
-		<div class="box8" ng-click="clickIcon('jdo')"></div>	<!-- jdo -->
-		<div class="box9" ng-click="clickIcon('greensock')"></div>	<!-- greensock -->
-		<div class="box10" ng-click="clickIcon('git')"></div>	<!-- git -->
-		<div class="box11" ng-click="clickIcon('firebase')"></div>	<!-- firebase -->
-		<div class="box12" ng-click="clickIcon('flex')"></div>	<!-- flex -->
-		<div class="box13" ng-click="clickIcon('sass')"></div>	<!-- sass -->
-		<div class="box14" ng-click="clickIcon('appEngine')"></div>	<!-- appEngine -->
-		<div class="box15" ng-click="clickIcon('air')"></div>	<!-- air -->
-		<div class="box16" ng-click="clickIcon('jquery')"></div>	<!-- jquery -->
-		<div class="box17" ng-click="clickIcon('gradle')"></div>	<!-- gradle -->
-		<div class="box18" ng-click="clickIcon('mongodb')"></div>	<!-- mongodb -->
+		<div class="header">
+			<div class="tab"></div>
+		</div>
+
+		<div class="box1" ng-click="clickIcon('gulp')" ng-mouseover="doScale('gulp','up')" ng-mouseleave="doScale('gulp','down')"></div>	<!-- gulp -->
+		<div class="box2" ng-click="clickIcon('java')" ng-mouseover="doScale('java','up')" ng-mouseleave="doScale('java','down')"></div>	<!-- java -->
+		<div class="box3" ng-click="clickIcon('angularjs')" ng-mouseover="doScale('angularjs','up')" ng-mouseleave="doScale('angularjs','down')"></div>	<!-- angularjs -->
+		<div class="box4" ng-click="clickIcon('bower')" ng-mouseover="doScale('bower','up')" ng-mouseleave="doScale('bower','down')"></div>	<!-- bower -->
+		<div class="box5" ng-click="clickIcon('nodejs')" ng-mouseover="doScale('nodejs','up')" ng-mouseleave="doScale('nodejs','down')"></div>	<!-- nodejs -->
+		<div class="box6" ng-click="clickIcon('android')" ng-mouseover="doScale('android','up')" ng-mouseleave="doScale('android','down')"></div>	<!-- android -->
+		<div class="box7" ng-click="clickIcon('jira')" ng-mouseover="doScale('jira','up')" ng-mouseleave="doScale('jira','down')"></div>	<!-- jira -->
+		<div class="box8" ng-click="clickIcon('jdo')" ng-mouseover="doScale('jdo','up')" ng-mouseleave="doScale('jdo','down')"></div>	<!-- jdo -->
+		<div class="box9" ng-click="clickIcon('greensock')" ng-mouseover="doScale('greensock','up')" ng-mouseleave="doScale('greensock','down')"></div>	<!-- greensock -->
+		<div class="box10" ng-click="clickIcon('git')" ng-mouseover="doScale('git','up')" ng-mouseleave="doScale('git','down')"></div>	<!-- git -->
+		<div class="box11" ng-click="clickIcon('firebase')" ng-mouseover="doScale('firebase','up')" ng-mouseleave="doScale('firebase','down')"></div>	<!-- firebase -->
+		<div class="box12" ng-click="clickIcon('flex')" ng-mouseover="doScale('flex','up')" ng-mouseleave="doScale('flex','down')"></div>	<!-- flex -->
+		<div class="box13" ng-click="clickIcon('sass')" ng-mouseover="doScale('sass','up')" ng-mouseleave="doScale('sass','down')"></div>	<!-- sass -->
+		<div class="box14" ng-click="clickIcon('appEngine')" ng-mouseover="doScale('appEngine','up')" ng-mouseleave="doScale('appEngine','down')"></div>	<!-- appEngine -->
+		<div class="box15" ng-click="clickIcon('air')" ng-mouseover="doScale('air','up')" ng-mouseleave="doScale('air','down')"></div>	<!-- air -->
+		<div class="box16" ng-click="clickIcon('jquery')" ng-mouseover="doScale('jquery','up')" ng-mouseleave="doScale('jquery','down')"></div>	<!-- jquery -->
+		<div class="box17" ng-click="clickIcon('gradle')" ng-mouseover="doScale('gradle','up')" ng-mouseleave="doScale('gradle','down')"></div>	<!-- gradle -->
+		<div class="box18" ng-click="clickIcon('mongodb')" ng-mouseover="doScale('mongodb','up')" ng-mouseleave="doScale('mongodb','down')"></div>	<!-- mongodb -->
 
 		<div class="lift" ng-click="startSequence()">
 			<div class="Lgripper"></div>
@@ -47,6 +51,14 @@
 			<div class="mech"></div>
 			<div class="Lgear"></div>
 			<div class="Rgear"></div>
+		</div>
+
+		<div class="liftBottom">
+			<div class="LgripperBottom"></div>
+			<div class="RgripperBottom"></div>
+			<div class="mechBottom"></div>
+			<div class="LgearBottom"></div>
+			<div class="RgearBottom"></div>
 		</div>
 
  </div>

@@ -1,7 +1,7 @@
 
 body{
 	overflow:hidden;
-	background-image: url('images/pageBackground.png');
+	background-image: url('http://www.zingerbugimages.com/backgrounds/gray_and_white_mini_grid_seamless_tileable_background_pattern.gif');
 }
 
 .bizCard{
@@ -78,6 +78,8 @@ body{
 	visibility: hidden;
 }
 
+/* ---------------------------- top lifter -------------------------*/
+
 .lift{
 	position: relative;
 	top: -1600px;
@@ -140,6 +142,76 @@ body{
 	background-image: url('images/gear.png');
 }
 
+/* ---------------------------- bottom lifter -------------------------*/
+
+.liftBottom{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 225px;
+	height: 1830px;
+	background-repeat: no-repeat;
+	background-image: url('images/newRod.png');
+	background-position: center top;
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+	z-index: 50;
+}
+
+.mechBottom{
+	position: absolute;
+	bottom: 155px;
+	left: 1px;
+	width: 224px;
+	height: 20px;
+	background-color: #000;
+	border: 2px solid;
+	border-radius: 5px;
+}
+
+.LgripperBottom{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 49px;
+	height: 168px;
+	background-repeat: no-repeat;
+	background-image: url('images/Lgripper.png');
+}
+
+.RgripperBottom{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 49px;
+	height: 168px;
+	background-repeat: no-repeat;
+	background-image: url('images/Rgripper.png');
+}
+
+.LgearBottom{
+	position: absolute;
+	bottom: 143px;
+	right: 198px;
+	width: 25px;
+	height: 25px;
+	background-repeat: no-repeat;
+	background-image: url('images/gear.png');
+}
+
+.RgearBottom{
+	position: absolute;
+	bottom: 143px;
+	right: 0px;
+	width: 25px;
+	height: 25px;
+	background-repeat: no-repeat;
+	background-image: url('images/gear.png');
+}
+
 /*        ------------------ icons --------------------- */
 
 .box1{
@@ -163,6 +235,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/javaIcon.png');
+	border-radius: 23px;
 	visibility: hidden;
 }
 
@@ -187,7 +260,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/bowerIcon.png');
-	border-radius: 10px;
+	border-radius: 50px;
 	visibility: hidden;
 }
 
@@ -199,6 +272,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/nodejsIcon.png');
+	border-radius: 50px;
 	visibility: hidden;
 }
 
@@ -210,6 +284,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/androidIcon.png');
+	border-radius: 23px;
 	visibility: hidden;
 }
 
@@ -256,6 +331,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/gitIcon.png');
+	border-radius: 50px;
 	visibility: hidden;
 }
 
@@ -267,6 +343,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/firebaseIcon.png');
+	border-radius: 20px;
 	visibility: hidden;
 }
 
@@ -278,6 +355,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/flexIcon.png');
+	border-radius: 15px;
 	visibility: hidden;
 }
 
@@ -340,7 +418,7 @@ body{
 	background-repeat: no-repeat;
 	background-image: url('images/gradleIcon.png');
 	border: solid 1px #026536;
-	border-radius: 10px;
+	border-radius: 50px;
 	visibility: hidden;
 }
 
@@ -352,6 +430,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/mongodbIcon.png');
+	border-radius: 23px;
 	visibility: hidden;
 }
 
@@ -395,12 +474,32 @@ body{
 	width: 100px;
 	height: 100px;
 	background-color: black;
-	visibility: hidden
+	visibility: hidden;
 }
 
 .btns{
 	position: absolute;
 	top: 100px;
 	left: 900px;
+}
+
+.header{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 275px;
+	background-color: whitesmoke;
+	box-shadow: 0 4px 2px -2px gray;
+}
+
+.tab{
+	position: absolute;
+	bottom: -20px;
+	left: 800px;
+	width: 40px;
+	height: 20px;
+	background-color: #000000;
+	box-shadow: 0 4px 2px -2px gray;
 }
 
