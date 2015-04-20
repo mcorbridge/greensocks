@@ -343,7 +343,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/firebaseIcon.png');
-	border-radius: 20px;
+	border-radius: 5px;
 	visibility: hidden;
 }
 
@@ -355,7 +355,7 @@ body{
 	height: 100px;
 	background-repeat: no-repeat;
 	background-image: url('images/flexIcon.png');
-	border-radius: 15px;
+	border-radius: 5px;
 	visibility: hidden;
 }
 
@@ -501,5 +501,16 @@ body{
 	height: 20px;
 	background-color: #000000;
 	box-shadow: 0 4px 2px -2px gray;
+}
+
+.start{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 222px;
+	height: 227px;
+	background-repeat: no-repeat;
+	background-image: url('images/startIcon.png');
+	border-radius: 23px;
 }
 

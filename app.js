@@ -107,7 +107,7 @@ angular.module('app', [])
 			{name:'greensock', value:8, div:'.box9'},
 			{name:'git', value:9, div:'.box10'},
 			{name:'firebase', value:10, div:'.box11'},
-			{name:'flex', value:1, div:'.box12'},
+			{name:'flex', value:11, div:'.box12'},
 			{name:'sass', value:12, div:'.box13'},
 			{name:'appEngine', value:13, div:'.box14'},
 			{name:'air', value:14, div:'.box15'},
@@ -117,6 +117,8 @@ angular.module('app', [])
 		];
 
 		$scope.startSequence = function(){
+			TweenMax.to('.start',0.5,{css:{alpha:0}});
+			TweenMax.to('.start',0,{css:{visibility:'hidden'}, delay:1});
 			levelOneDrop();
 		}
 
@@ -180,10 +182,11 @@ angular.module('app', [])
 			TweenMax.to('.box17', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
 			TweenMax.to('.box18', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
 
-
+			TweenMax.to('.lift', 0, {css:{visibility:"visible", y:-400}});
 			TweenMax.to('.liftBottom', 0, {css:{visibility:"visible",x:liftBottomX, y:liftBottomY}});
-			TweenMax.to('.header', 0, {css:{visibility:"visible", y:-275}});
+			TweenMax.to('.header', 0, {css:{visibility:"visible", y:-300}});
 			TweenMax.to('.tab', 0, {css:{visibility:"visible", left:tabX}});
+			TweenMax.to('.start', 0, {css:{visibility:"visible", left:(screenWidth/2 - 222/2), top:(screenHeight/2 - 300/2)}});
 		}
 
 
@@ -307,6 +310,12 @@ angular.module('app', [])
 				}
 			}
 
+			// item currently in placement does not respond to mouse events
+			if(currentBox !== null){
+				if(currentBox.box === iconItem.div)
+					return;
+			}
+
 			TweenMax.to(iconItem.div, 0.25,{scale:1});
 
 			if(isPlaced){
@@ -318,10 +327,11 @@ angular.module('app', [])
 					.to('.lift', 1, {x:currentBox.liftX, y:currentBox.dropLocation-130})
 					.add(TweenMax.to(currentBox.box, 1,{top:currentBox.dropLocation, left:currentBox.boxOffset, delay:-1}))
 					.add(moveGrippers(0,0,1))
-					.to('.lift', 0, {onComplete:continuePlacement})
+					.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none', onComplete:continuePlacement}))
 			}else{
 				currentBox = arrBoxCoords[n];
 				isSelecting = true;
+				TweenMax.to(currentBox.box, 0, {boxShadow:"10px 10px 10px"})
 				tlMax
 					.add(moveGrippers(0,0,1))
 					.to('.lift', 1, {x:currentBox.liftX, y:currentBox.dropLocation-130})
@@ -345,9 +355,14 @@ angular.module('app', [])
 			for(var n=0;n<iconMap.length;n++){
 				var iconItem = iconMap[n];
 				if(item === iconItem.name){
-					console.log(iconItem.name + ' ' + iconItem.value + ' ' + iconItem.div);
 					break;
 				}
+			}
+
+			// item currently in placement does not respond to mouse events
+			if(currentBox !== null){
+				if(iconItem.div === currentBox.box)
+					return;
 			}
 
 			if(direction === 'up'){
@@ -359,7 +374,7 @@ angular.module('app', [])
 			}
 		}
 
-
+		 // --------------------- start the ball rolling -----------------------------
 		setIconLocation();
 
 
