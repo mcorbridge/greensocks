@@ -2,14 +2,247 @@
 /* jslint node: true */
 'use strict';
 
-angular.module('app', ['data'])
+angular.module('app', ['ui.router','uiRouterStyles','data'])
 
-	.config([ function() {
+	.config(['$stateProvider', function($stateProvider) {
 		console.log('app config');
+
+		$stateProvider.state('gulp',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/gulp.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('java',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/java.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('angularjs',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/angular.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('bower',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/bower.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('nodejs',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/nodejs.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('android',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/android.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('jira',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/jira.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('jdo',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/jdo.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('greensock',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/greensock.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('git',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/git.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('firebase',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/firebase.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('flex',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/flex.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('sass',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/sass.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('appEngine',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/appEngine.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('air',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/air.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('jquery',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/jquery.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('gradle',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/gradle.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('mongodb',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/mongodb.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
+
+		$stateProvider.state('about',{
+			views:{
+				'main':{
+					url:'',
+					templateUrl:'views/about.html',
+					data: {
+						css: 'style.css'
+					}
+				}
+			}
+		});
 	}])
 
-	.run([ function() {
+	.run(['$state', function($state) {
 		console.log('app run');
+		//$state.go('angularjs');
+	}])
+
+	.controller('angularInfoCrtl', ['$scope', '$rootScope', function($scope, $rootScope){
+		   console.log('---> angularInfoCrtl');
 	}])
 
 	.controller('angularImageCrtl', ['$scope', '$rootScope', function($scope, $rootScope){
@@ -58,7 +291,7 @@ angular.module('app', ['data'])
 
 	}])
 
-	.controller('liftCtrl', ['$scope','$rootScope', '$window','aboutMe', function($scope, $rootScope, $window, aboutMe){
+	.controller('liftCtrl', ['$scope','$rootScope', '$window','$state', 'aboutMe', function($scope, $rootScope, $window, $state, aboutMe){
 
 		var screenWidth = $window.screen.availWidth;
 		var screenHeight = $window.screen.availHeight;
@@ -168,20 +401,32 @@ angular.module('app', ['data'])
 				.to('.LgearBottom', 1,{rotation:rotate_0},'grab')
 				.to('.RgearBottom', 1,{rotation:rotate_1},'grab');
 			return tl;
-		}
+		};
 
-		var setInfoText = function(){
-			console.log(currentBox);
-		}
+		var setInfoText = function(location){
+			if(currentBox !== null){
+				for(var n=0;n<iconMap.length;n++){
+					var item = iconMap[n];
+					if(item.div === currentBox.box){
+						break;
+					}
+				}
+				$state.go(item.name);
+			}
 
-		var moveInfoBox = function(direction, delay){
+			if(location !== null){
+				$state.go(location);
+			}
+		};
+
+		var moveInfoBox = function(direction, delay, location){
 			if(direction === 'in'){
-				setInfoText();
+				setInfoText(location);
 				TweenMax.to('.info',1,{left:screenWidth-1250, delay:delay});
 			}else{
 				TweenMax.to('.info',1,{left:screenWidth});
 			}
-		}
+		};
 
 		var setIconLocation = function(){
 			TweenMax.to('.box1', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
@@ -210,15 +455,11 @@ angular.module('app', ['data'])
 			TweenMax.to('.start', 0, {css:{visibility:"visible", left:(screenWidth/2 - 222/2), top:(screenHeight/2 - 300/2)}});
 			TweenMax.to('.startGlow', 0, {css:{alpha:0, left:(screenWidth/2 - 154), top:(screenHeight/2 - 175)}});
 			TweenMax.to('.info', 0, {css:{visibility:"visible", left:screenWidth, top:(screenHeight-750)}});
-			//TweenMax.to('.info', 0, {css:{visibility:"visible", left:500, top:100}});
-
 		};
 
-
-
 		 var doGetAboutMe = function(){
-			 isAboutMe = true;
-			 moveInfoBox('in',0);
+			isAboutMe = true;
+			 moveInfoBox('in',0,'about');
 		 }
 
 		var liftDropComplete = function(){
@@ -379,7 +620,7 @@ angular.module('app', ['data'])
 					.timeScale(2);
 				isPlaced = true;
 				// add info
-				moveInfoBox('in',2);
+				moveInfoBox('in',2,null);
 			}
 		}
 
@@ -412,7 +653,7 @@ angular.module('app', ['data'])
 		};
 
 		$scope.closeInfoBox = function(){
-			moveInfoBox('out',2);
+			moveInfoBox('out',2,null);
 			isPlaced = false;
 
 			if(isAboutMe){
@@ -429,12 +670,14 @@ angular.module('app', ['data'])
 				.add(moveGrippers(0,0,1))
 				.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none'}))
 				.to('.lift', 1, {y:-300});
+
+			currentBox = null;
 		}
 
 		$scope.getAboutMe = function(){
 			$scope.infoText = aboutMe.text;
 			if(isPlaced){
-				moveInfoBox('out',2);
+				moveInfoBox('out',2,null);
 				var tlMax = new TimelineMax({repeat:0, repeatDelay:1});
 				tlMax
 					.to('.lift',1,{y:15})
@@ -444,6 +687,7 @@ angular.module('app', ['data'])
 					.add(moveGrippers(0,0,1))
 					.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none'}))
 					.to('.lift', 1, {y:-300, onComplete:doGetAboutMe});
+				currentBox = null;
 				isPlaced = false;
 			}else{
 				doGetAboutMe();

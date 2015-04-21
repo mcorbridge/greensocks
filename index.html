@@ -67,10 +67,9 @@
 	 <div class="startGlow"></div>
 	 <div class="start" ng-click="startSequence()" ng-mouseover="doGlow('in')" ng-mouseout="doGlow('out')"></div>
 
-	 <div class="info">
-		 <i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-		 <textarea class="infoText">{{infoText}}</textarea>
-	 </div>
+	<div class="info">
+		<div ui-view="main"></div>
+ 	</div>
 
  </div>
 

@@ -579,6 +579,7 @@ body{
 	-webkit-box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
 	-moz-box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
 	box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
+	visibility: hidden;
 }
 
 .infoClose{
@@ -602,5 +603,25 @@ body{
 	font-size: 30px;
 	font-weight:normal;
 }
+
+.test{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #f8f8ff;
+	width: 1000px;
+	height: 600px;
+	border: gray 2px solid;
+	border-radius: 23px;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
+	box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
+	visibility: visible;
+}
+
+.iconInfo{
+	padding: 20px;
+}
+
 
 
