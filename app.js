@@ -2,7 +2,7 @@
 /* jslint node: true */
 'use strict';
 
-angular.module('app', [])
+angular.module('app', ['data'])
 
 	.config([ function() {
 		console.log('app config');
@@ -58,7 +58,7 @@ angular.module('app', [])
 
 	}])
 
-	.controller('liftCtrl', ['$scope','$rootScope', '$window', function($scope, $rootScope, $window){
+	.controller('liftCtrl', ['$scope','$rootScope', '$window','aboutMe', function($scope, $rootScope, $window, aboutMe){
 
 		var screenWidth = $window.screen.availWidth;
 		var screenHeight = $window.screen.availHeight;
@@ -116,9 +116,17 @@ angular.module('app', [])
 			{name:'mongodb', value:17, div:'.box18'}
 		];
 
+		var currentBox = null;
+		var currentItem = null;
+		var isAboutMe = false;
+
+		$scope.infoText = '';
+
 		$scope.startSequence = function(){
 			TweenMax.to('.start',0.5,{css:{alpha:0}});
 			TweenMax.to('.start',0,{css:{visibility:'hidden'}, delay:1});
+			TweenMax.to('.startGlow',0.5,{css:{alpha:0}});
+			TweenMax.to('.startGlow',0,{css:{visibility:'hidden'}, delay:1});
 			levelOneDrop();
 		}
 
@@ -162,6 +170,19 @@ angular.module('app', [])
 			return tl;
 		}
 
+		var setInfoText = function(){
+			console.log(currentBox);
+		}
+
+		var moveInfoBox = function(direction, delay){
+			if(direction === 'in'){
+				setInfoText();
+				TweenMax.to('.info',1,{left:screenWidth-1250, delay:delay});
+			}else{
+				TweenMax.to('.info',1,{left:screenWidth});
+			}
+		}
+
 		var setIconLocation = function(){
 			TweenMax.to('.box1', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
 			TweenMax.to('.box2', 0, {css:{visibility:"visible",left:screenWidth-162, top:screenHeight-50}});
@@ -187,9 +208,18 @@ angular.module('app', [])
 			TweenMax.to('.header', 0, {css:{visibility:"visible", y:-300}});
 			TweenMax.to('.tab', 0, {css:{visibility:"visible", left:tabX}});
 			TweenMax.to('.start', 0, {css:{visibility:"visible", left:(screenWidth/2 - 222/2), top:(screenHeight/2 - 300/2)}});
-		}
+			TweenMax.to('.startGlow', 0, {css:{alpha:0, left:(screenWidth/2 - 154), top:(screenHeight/2 - 175)}});
+			TweenMax.to('.info', 0, {css:{visibility:"visible", left:screenWidth, top:(screenHeight-750)}});
+			//TweenMax.to('.info', 0, {css:{visibility:"visible", left:500, top:100}});
+
+		};
 
 
+
+		 var doGetAboutMe = function(){
+			 isAboutMe = true;
+			 moveInfoBox('in',0);
+		 }
 
 		var liftDropComplete = function(){
 			var tl = new TimelineMax({repeat:0, repeatDelay:1});
@@ -291,8 +321,14 @@ angular.module('app', [])
 			isSelecting = false;
 		}
 
-		var currentBox = null;
-		var currentItem = null;
+		$scope.doGlow = function(direction){
+			if(direction === 'in'){
+				TweenMax.to('.startGlow', 1, {css:{alpha:1}});
+			}else{
+				TweenMax.to('.startGlow', 1, {css:{alpha:0}});
+			}
+
+		}
 
 		$scope.clickIcon = function(item){
 			var tlMax = new TimelineMax({repeat:0, repeatDelay:1});
@@ -327,7 +363,7 @@ angular.module('app', [])
 					.to('.lift', 1, {x:currentBox.liftX, y:currentBox.dropLocation-130})
 					.add(TweenMax.to(currentBox.box, 1,{top:currentBox.dropLocation, left:currentBox.boxOffset, delay:-1}))
 					.add(moveGrippers(0,0,1))
-					.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none', onComplete:continuePlacement}))
+					.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none', onComplete:continuePlacement}));
 			}else{
 				currentBox = arrBoxCoords[n];
 				isSelecting = true;
@@ -341,8 +377,9 @@ angular.module('app', [])
 					.add(moveGrippers(0,0,1))
 					.to('.lift', 1, {y:-300, onComplete:setIsSelecting})
 					.timeScale(2);
-
 				isPlaced = true;
+				// add info
+				moveInfoBox('in',2);
 			}
 		}
 
@@ -372,7 +409,47 @@ angular.module('app', [])
 				TweenMax.to(iconItem.div, 0.25,{scale:1})
 				TweenMax.to(iconItem.div, 0, {boxShadow:"none"})
 			}
+		};
+
+		$scope.closeInfoBox = function(){
+			moveInfoBox('out',2);
+			isPlaced = false;
+
+			if(isAboutMe){
+				isAboutMe = false;
+				return;
+			}
+
+			var tlMax = new TimelineMax({repeat:0, repeatDelay:1});
+			tlMax
+				.to('.lift',1,{y:15})
+				.add(moveGrippers(14,-14,1))
+				.to('.lift', 1, {x:currentBox.liftX, y:currentBox.dropLocation-130})
+				.add(TweenMax.to(currentBox.box, 1,{top:currentBox.dropLocation, left:currentBox.boxOffset, delay:-1}))
+				.add(moveGrippers(0,0,1))
+				.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none'}))
+				.to('.lift', 1, {y:-300});
 		}
+
+		$scope.getAboutMe = function(){
+			$scope.infoText = aboutMe.text;
+			if(isPlaced){
+				moveInfoBox('out',2);
+				var tlMax = new TimelineMax({repeat:0, repeatDelay:1});
+				tlMax
+					.to('.lift',1,{y:15})
+					.add(moveGrippers(14,-14,1))
+					.to('.lift', 1, {x:currentBox.liftX, y:currentBox.dropLocation-130})
+					.add(TweenMax.to(currentBox.box, 1,{top:currentBox.dropLocation, left:currentBox.boxOffset, delay:-1}))
+					.add(moveGrippers(0,0,1))
+					.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none'}))
+					.to('.lift', 1, {y:-300, onComplete:doGetAboutMe});
+				isPlaced = false;
+			}else{
+				doGetAboutMe();
+			}
+		}
+
 
 		 // --------------------- start the ball rolling -----------------------------
 		setIconLocation();

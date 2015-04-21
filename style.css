@@ -1,3 +1,13 @@
+@font-face {
+	font-family:"Aroly";
+	src: url("fonts/aroly.ttf");
+}
+
+@font-face {
+	font-family:"Ardnas";
+	src: url("fonts/Ardnas.otf");
+}
+
 
 body{
 	overflow:hidden;
@@ -489,9 +499,43 @@ body{
 	left: 0px;
 	width: 100%;
 	height: 275px;
-	background-color: whitesmoke;
+	background-color: #f8f8ff;
 	box-shadow: 0 4px 2px -2px gray;
 }
+
+.headerText{
+	font-family:'Ardnas';
+	font-size: 140px;
+	font-weight:normal;
+	color: darkblue;
+	text-align: center;
+	line-height: 100%;
+	margin-top:20px;
+	padding-bottom: 5px;
+	margin-bottom:7px;
+}
+
+.subHeaderText{
+	font-family:'Ardnas';
+	font-size: 45px;
+	font-weight:normal;
+	color: darkblue;
+	text-align: center;
+	line-height: 100%;
+	margin-top:20px;
+	padding-bottom: 5px;
+	margin-bottom:7px;
+}
+
+.aboutMe{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: darkblue;
+	text-shadow: 1px 1px 1px #ccc;
+	font-size: 5.5em;
+}
+
 
 .tab{
 	position: absolute;
@@ -511,6 +555,52 @@ body{
 	height: 227px;
 	background-repeat: no-repeat;
 	background-image: url('images/startIcon.png');
-	border-radius: 23px;
 }
+
+.startGlow{
+	position: absolute;
+	top: 810px;
+	left: 490px;
+	width: 451px;
+	height: 431px;
+	background-repeat: no-repeat;
+	background-image: url('images/startIconGlow.png');
+}
+
+.info{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #f8f8ff;
+	width: 1000px;
+	height: 600px;
+	border: gray 2px solid;
+	border-radius: 23px;
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
+	box-shadow: 10px 10px 5px 0px rgba(194,180,194,0.50);
+}
+
+.infoClose{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: red;
+	text-shadow: 1px 1px 1px #ccc;
+	font-size: 1.5em;
+}
+
+.infoText{
+	position: absolute;
+	top: 30px;
+	left: 30px;
+	height: 550px;
+	width: 900px;
+	background-color: transparent;
+	border: none;
+	font-family:'Ardnas';
+	font-size: 30px;
+	font-weight:normal;
+}
+
 

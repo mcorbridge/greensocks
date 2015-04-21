@@ -23,6 +23,9 @@
  <div ng-controller="liftCtrl">
 
 		<div class="header">
+			<div class="headerText">michael corbridge</div>
+			<div class="subHeaderText">enterprise web and mobile application development</div>
+			<i class="aboutMe fa fa-bars" ng-click="getAboutMe()"></i>
 			<div class="tab"></div>
 		</div>
 
@@ -61,7 +64,13 @@
 			<div class="RgearBottom"></div>
 		</div>
 
-	 <div class="start" ng-click="startSequence()"></div>
+	 <div class="startGlow"></div>
+	 <div class="start" ng-click="startSequence()" ng-mouseover="doGlow('in')" ng-mouseout="doGlow('out')"></div>
+
+	 <div class="info">
+		 <i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
+		 <textarea class="infoText">{{infoText}}</textarea>
+	 </div>
 
  </div>
 
@@ -81,7 +90,7 @@
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 
-
+<script src="data.js"></script>
 <script src="app.js"></script>
 
 
