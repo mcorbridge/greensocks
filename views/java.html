@@ -1,10 +1,52 @@
+<style>
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
 
+	.titleImg{
+		position: absolute;
+		top: 30px;
+		left: 300px;
+		height: 58px;
+		width: 100px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 50px;
+		left: 100px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	java
+
+	<div class="developsWith">develops with: </div>
+	<img class="titleImg" src="../images/javaTtle.png">
+
+
+
+	<div class="infoText">Java remains amongst the top programming languages in the world. Why? Although the technology world has seen a dramatic rise in
+	scripting languages such as Ruby, PHP, and Javascript, when it comes time to write truly robust, secure, high performance, threaded, OO code - a
+	Java skill set is an absolute requirement.  <img style="float: left; margin: 0px 15px 15px 0px;" src="../images/javaPopularity.png" width="200" /> The graph to the
+	, the image to the left shows the popularity of Java from 2002 to 2015.  I have used Java to build robust and highly performant server applications for
+	my clients.  Hooked up to a ORM datasource, NoSQL or traditional RDBMS database, the java tier excels at encapsulating business intelligence and marshalling
+	large datasets to and from the client web interface.  Dependable and powerful, Java developers also have access to thousands of libraries to solve any
+	of a vast range of business challenges.</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

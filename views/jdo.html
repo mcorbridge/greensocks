@@ -1,10 +1,58 @@
+<style>
 
+	@font-face {
+		font-family:"Ardnas";
+		src: url("../fonts/Ardnas.otf");
+	}
+
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
+
+	.titleImg{
+		position: absolute;
+		top: 10px;
+		left: 250px;
+		height: 80px;
+		width: 300px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 20px;
+		left: 70px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	java data objects
+
+	<div class="developsWith">persists with: </div>
+	<img class="titleImg" src="../images/dataNucleus.jpg">
+
+
+
+	<div class="infoText">Java Data Objects (JDO) is a specification of Java object persistence. One of its features is a transparency of the
+		persistence services to the domain model. JDO persistent objects are ordinary Java programming language classes (POJOs); there is no
+		requirement for them to implement certain interfaces or extend from special classes. JDO 1.0 was developed under the Java Community Process
+		You can use JDO, a standardised persistence API. With JDO you can develop plain old java objects (POJOs) and persist them as they are
+		transparently. This requires very little work from the developer. It allows persistence to any type of datastore in principle,
+		being designed with flexibility and datastore agnositicity in mind. This has been a standard since 2002 (JDO1), being upgraded in 2006
+		(JDO2) and is in the process of being developed further (JDO2.1) by Apache JDO</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

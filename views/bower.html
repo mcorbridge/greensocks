@@ -1,10 +1,57 @@
+<style>
 
+	@font-face {
+		font-family:"Ardnas";
+		src: url("../fonts/Ardnas.otf");
+	}
+
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
+
+	.titleImg{
+		position: absolute;
+		top: 10px;
+		left: 200px;
+		height: 79px;
+		width: 244px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 20px;
+		left: 70px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	bower
+
+	<div class="developsWith">uses: </div>
+	<img class="titleImg" src="../images/bowerTitle.png">
+
+
+
+	<div class="infoText">What is so great about <b>Bower</b>? For the uninitiated, Bower is a package manager, and it is very good at, well, managing packages.
+		All those things that you depend on an external author for. Good examples are CSS frameworks like Bootstrap, libraries like jQuery, jQuery plugins,
+		or JavaScript frameworks like Angular.  Because web sites are made of lots of things, like frameworks, libraries, assets, and utilities.
+		Bower manages all these things for you. Bower works by fetching and installing packages from all over, taking care of hunting, finding,
+		downloading, and saving the stuff you’re looking for.  Is it worth learning yet another set of command in a brain already crammed with
+		Git, Node and Gulp?  The answer is a definitive <b>YES</b>.  Plus the Bower bird icon is a nice splash of color?  Dontcha think?</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

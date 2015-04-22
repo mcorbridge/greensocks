@@ -1,10 +1,51 @@
+<style>
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
 
+	.titleImg{
+		position: absolute;
+		top: 20px;
+		left: 360px;
+		height: 85px;
+		width: 285px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 50px;
+		left: 100px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	android
+
+	<div class="developsWith">develops mobile apps with: </div>
+	<img class="titleImg" src="../images/androidTitle.png">
+
+
+
+	<div class="infoText">Without getting into an acrimonious discussion about the merits of iOS versus android, or native vs hybrid, or the impact that ReactJS might
+		have on the latter, let me just say that I enjoy developing androids apps.  Feel free to conduct your own research under the headings: environment,configuration,UX design
+		<img style="float: left; margin: 0px 15px 15px 0px;" src="../images/iosAndroid.jpg" />language, API's, sharing, fragmentation and publication.  Maybe you will come to the
+		same conclusion I did. Personally, I absolutely <b>LOVE</b> android studio (and it's price: FREE!) and the vast number of library's available to developers.  While
+	I can appreciate the user experience with iOS, I have to pay $100 just to proof-of-concept something on my own device?!  And I need a Mac to develop xcode?  I'll stick with
+		android, thank you very much.</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

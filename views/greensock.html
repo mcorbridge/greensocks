@@ -1,10 +1,58 @@
+<style>
 
+	@font-face {
+		font-family:"Ardnas";
+		src: url("../fonts/Ardnas.otf");
+	}
+
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
+
+	.titleImg{
+		position: absolute;
+		top: 10px;
+		left: 250px;
+		height: 57px;
+		width: 300px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 20px;
+		left: 70px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	greensock
+
+	<div class="developsWith">animates with: </div>
+	<img class="titleImg" src="../images/greensockTitle.png">
+
+
+
+	<div class="infoText">As I try to list what I <b>love</b> about what the developers at Greensock have created, I quickly run out of superlatives.
+	Obviously the animation on site you are looking at here is driven entirely by the Greensock <b>GSAP</b> javascript library.  How would I approach
+	this using ngAnimate or CSS animation?  I shudder at the thought!  Any developer who has devoted themselves to an OO approach to programming will
+	instantly understand and appreciate what the authors at Greensock have created.  Their motto is: Engaging the Internet.  Well they can easy add:
+	"And Engaging the Developer".  Greensock is so <b>FUN</b> to work with!  Honestly! Give it a spin, and please make sure you show your appreciation
+	by signing up (a mere $50) for the extended api.  It is the least we can do to ensure the high level of support, research and development continues.
+	Off I go to play with some more animation.  I hope you and your clients continue to be amazed.</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

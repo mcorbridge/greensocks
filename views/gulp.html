@@ -1,10 +1,50 @@
+<style>
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
 
+	.titleImg{
+		position: absolute;
+		top: 30px;
+		left: 300px;
+		height: 58px;
+		width: 100px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 50px;
+		left: 100px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	gulp
+
+	<div class="developsWith">builds with: </div>
+	<img class="titleImg" src="../images/gulpTitle.jpg">
+
+
+
+	<div class="infoText">Am I religious about which build tool I use?  No, absolutely not!  I've used ANT, Grunt JS-based task runners, but once I
+		was willing to take a deep dive into Gulp, I was sold.  I'm not the only one.  Since it's inception, <img style="float: left; margin: 0px 15px 15px 0px;" src="../images/gruntGulp.png" />
+		a large portion of the JS community, and many projects like Ionic have adopted it right away.  Gulp is highly configurable and uses node.js's streams which
+	allows it to execute faster.  Copying, minifying, file watch ... each module fits into the gulp build like a LEGO brick.  Gulp follows the philosophy of <b>do one thing,
+	and do it well.</b></div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

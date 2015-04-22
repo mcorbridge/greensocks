@@ -423,8 +423,10 @@ angular.module('app', ['ui.router','uiRouterStyles','data'])
 			if(direction === 'in'){
 				setInfoText(location);
 				TweenMax.to('.info',1,{left:screenWidth-1250, delay:delay});
+				TweenMax.to('.subHeaderText',1,{css:{alpha:0}, delay:delay});
 			}else{
 				TweenMax.to('.info',1,{left:screenWidth});
+				TweenMax.to('.subHeaderText',1,{css:{alpha:1}});
 			}
 		};
 

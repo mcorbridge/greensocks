@@ -1,10 +1,58 @@
+<style>
 
+	@font-face {
+		font-family:"Ardnas";
+		src: url("../fonts/Ardnas.otf");
+	}
+
+	.infoText{
+		position: absolute;
+		top: 80px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
+
+	.titleImg{
+		position: absolute;
+		top: 00px;
+		left: 360px;
+		height: 71px;
+		width: 198px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 20px;
+		left: 70px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	nodejs
+
+	<div class="developsWith">develops server apps with: </div>
+	<img class="titleImg" src="../images/nodeTitle.png">
+
+
+
+	<div class="infoText">Since it's debut November 8, 2009, <b>Node.js</b> then been met with unprecedented growth, popularity and adoption.  What makes it popular is that it
+		allows the creation of web-server apps using the language of the browser, javascript.  Bundled with the <b>npm</b> package manager to accelerate development,
+		<img style="float: left; margin: 0px 15px 15px 0px;" src="../images/npmTtle.png" />NodeJS uses a non-blocking I/O, event-driven architecture that optimizes
+	throughput and scalability.  Who uses it? Microsoft, Yahoo!, Walmart, Groupon, SAP and LinkedIn - to name a few.  So how does NodeJS match up against java server apps?
+	Well, Java is build on a rock-solid foundation of over 20 years of experience. That counts for a lot.  But Node.js combines speed and simplicity in a language that
+	is shared on the server and the browser.  This ubiquity makes for a very compelling argument.  For the time being, I tend towards a java solution.  But I continue to
+	learn and develop with Node.js as newer database engines such as json based MongoDB and Firebase become more prevalent.</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

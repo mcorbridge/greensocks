@@ -1,10 +1,58 @@
+<style>
 
+	@font-face {
+		font-family:"Ardnas";
+		src: url("../fonts/Ardnas.otf");
+	}
+
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
+
+	.titleImg{
+		position: absolute;
+		top: 10px;
+		left: 320px;
+		height: 93px;
+		width: 200px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 40px;
+		left: 70px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	jira
+
+	<div class="developsWith">manages projects with: </div>
+	<img class="titleImg" src="../images/jiraTitle.jpg">
+
+
+
+	<div class="infoText">JIRA (by Atlassian) provides bug tracking, issue tracking, and project management functions. No project can be successful without
+	a process to monitor and assign all the tasks that go into a release.  Developers (bless their hearts) <b>HATE</b> the administration of these tasks.
+	But without a robust and comprehensive project management tool, failure looms large.  In steps JIRA.  With a click of a button JIRA allows you to share
+	issues and search results.  When you mention someone in JIRA, they will receive an email notification with a link to the issue.JIRA means transparency for all projects
+	and tasks throughout the entire company. With JIRA, you won't forget any tasks that have gotten lost in email inboxes. With JIRA, it's always easy to figure out who
+	was given what task to accomplish. You can see all information for a ticket on 1 screen: priority level, processing status, agent, and estimated time to completion.  Are you dold on
+	JIRA yet?  I am!</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>

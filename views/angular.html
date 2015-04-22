@@ -1,10 +1,51 @@
+<style>
+	.infoText{
+		position: absolute;
+		top: 110px;
+		left: 30px;
+		height: 470px;
+		width: 900px;
+		background-color: transparent;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+	}
 
+	.titleImg{
+		position: absolute;
+		top: 11px;
+		left: 300px;
+		height: 77px;
+		width: 297px;
+		display:block;
+		float:left;
+	}
+
+	.developsWith{
+		position: absolute;
+		top: 50px;
+		left: 100px;
+		font-family:'Ardnas';
+		font-size: 30px;
+		font-weight:normal;
+		margin-bottom: 50px;
+	}
+</style>
 
 <div class="iconInfo">
-	
-	<img src="../images/angular.jpg">
+
+		<div class="developsWith">develops with: </div>
+		<img class="titleImg" src="../images/AngularJS.png">
+
+
+
+	<div class="infoText">A Google initative, AngularJS remains as one of the most powerful and popular open-source web development frameworks currently available.  'Currently' is the operative
+	term since it seems a html5/javascript framework is being developed every day!  But until the day AngularJS is unseated as king, let us marvel at this wonderful set
+	of tools.  The site you are looking at is built entirely in AngularJS, but how does this impact clients?  The simple reason is that AngularJS vastly simplifies and
+	reduces the time between web-site conceptualization and final delivery without impacting creative design, user experience, and functionality.  And most importantly,
+	clients can now create powerful Single Page Applications (SPA) that allows them to take their business into the browser.  With AngularJS you now have power to create flexibility,
+	reliable, maintainable, compelling web applications.  Now you can go anywhere your imagination takes you!</div>
 
 	<i class="infoClose fa fa-times" ng-click="closeInfoBox()"></i>
-
 
 </div>
