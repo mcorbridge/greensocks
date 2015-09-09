@@ -324,6 +324,8 @@ angular.module('app', ['ui.router','uiRouterStyles','data'])
 
 		var isPlaced = false;
 
+		var isMarquee = false;
+
 		var liftBottomY = -1830+screenHeight;
 		var liftBottomX = (screenWidth/2) - (225/2);
 		var tabX = (screenWidth/2) - (40/2);
@@ -576,10 +578,18 @@ angular.module('app', ['ui.router','uiRouterStyles','data'])
 		$scope.clickIcon = function(item){
 			var tlMax = new TimelineMax({repeat:0, repeatDelay:1});
 
+			console.log('isBuilding? ' + isBuilding);
+			console.log('isSelecting? ' + isSelecting);
+			console.log('isPlaced? ' + isPlaced);
+			console.log('isMarquee? ' + isMarquee);
+
 			if(isBuilding)
 				return;
 
 			if(isSelecting)
+				return;
+
+			if(isMarquee)
 				return;
 
 			for(var n=0;n<iconMap.length;n++){
@@ -658,6 +668,8 @@ angular.module('app', ['ui.router','uiRouterStyles','data'])
 			moveInfoBox('out',2,null);
 			isPlaced = false;
 
+			isMarquee = true;
+
 			if(isAboutMe){
 				isAboutMe = false;
 				return;
@@ -671,9 +683,15 @@ angular.module('app', ['ui.router','uiRouterStyles','data'])
 				.add(TweenMax.to(currentBox.box, 1,{top:currentBox.dropLocation, left:currentBox.boxOffset, delay:-1}))
 				.add(moveGrippers(0,0,1))
 				.add(TweenMax.to(currentBox.box, 0.1,{boxShadow:'none'}))
-				.to('.lift', 1, {y:-300});
+				.to('.lift', 1, {y:-300, onComplete:setIsMarquee});
 
 			currentBox = null;
+		};
+
+		var setIsMarquee = function(){
+			console.log('**************************************************************************');
+			isMarquee = false;
+			console.log('isMarquee? ' + isMarquee);
 		}
 
 		$scope.getAboutMe = function(){
